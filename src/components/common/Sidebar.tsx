@@ -1,11 +1,9 @@
-import { useState } from "react";
-import logo from "../../assets/sidebar/book-square.svg";
-import { sidebarData, SidebarItem } from "../../data/Sidebar.data.tsx";
+import { sidebar, SidebarItem } from "../../data/sidebar.tsx";
 import { NavLink } from "react-router-dom";
-import { HambergerMenu } from 'iconsax-react';
-
+import {CloseCircle, HambergerMenu} from 'iconsax-react';
+import SidebarToggle from '../../hooks/SidebarToggle.tsx'
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const {isOpen, setIsOpen}= SidebarToggle();
 
   return (
     <div>
@@ -14,7 +12,6 @@ const Sidebar = () => {
         className={`md:hidden fixed z-50 py-3 px-3 text-white p-2 rounded  
         ${
           isOpen ? "hidden" : "block"}`}
-
         onClick={() => setIsOpen(true)}
       >
         <HambergerMenu size="32" color="#8E92BC"/>
@@ -32,19 +29,19 @@ const Sidebar = () => {
           className="md:hidden absolute top-4 right-4 text-2xl"
           onClick={() => setIsOpen(false)}
         >
-          ✖
+          <CloseCircle size="32" color="#000"/>
         </button>
 
         {/* Logo */}
         <div className="flex flex-col gap-[2rem]">
           <div className="flex items-center text-[2rem] gap-[1rem] font-semibold">
-            <img src={logo} alt="logo" />
+            {/*<img src={logo} alt="logo" />*/}
             <h1>DNX</h1>
           </div>
 
           {/* Sidebar Links */}
           <div className="w-full flex flex-col gap-[1rem]">
-            {sidebarData.map((item: SidebarItem) => (
+            {sidebar.map((item: SidebarItem) => (
               <NavLink
                 to={item.path}
                 key={item.id}
@@ -90,7 +87,7 @@ const Sidebar = () => {
       {/* Overlay on Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          className="fixed inset-0  bg-opacity-10 backdrop-blur-xl z-30 md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

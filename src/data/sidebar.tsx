@@ -8,7 +8,7 @@ export interface SidebarItem {
   path: string;
 }
 
-export const sidebarData = [
+export const sidebar = [
 
   {
     id:1,
