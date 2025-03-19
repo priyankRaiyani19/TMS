@@ -5,12 +5,14 @@ import Task from '../pages/Task.tsx';
 import Mentors from '../pages/Mentors.tsx';
 import Message from '../pages/Message.tsx';
 import Settings from '../pages/Settings.tsx';
+import {Navigate} from "react-router";
 
 const RouteProvider = () => {
   return (
     <Routes>
+        <Route path="/" element={<Navigate to="/overview"/>}/>
       <Route path="/" element={<Layout />}>
-        <Route path="overview" element={<Overview />} />
+        <Route index  path="overview" element={<Overview />} />
         <Route path="task" element={<Task />} />
         <Route path="mentors" element={<Mentors />} />
         <Route path="messages" element={<Message />} />

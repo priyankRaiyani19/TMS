@@ -4,8 +4,9 @@ import Navbar from "../components/common/Navbar.tsx";
 
 
 const Layout = () => {
+
     return (
-        <div className={`flex`}>
+        <div className={`flex overflow-x-hidden`}>
             <Sidebar/>
             <div className={`flex flex-col w-full`}>
                 <Navbar/>

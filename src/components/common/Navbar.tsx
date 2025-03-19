@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom";
 
 const Navbar = () => {
     const location = useLocation();
-    console.log("this is path ", location.pathname)
+    // console.log("this is path ", location.pathname)
 
     return (
         <div>

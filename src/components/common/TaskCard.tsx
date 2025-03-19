@@ -1,4 +1,3 @@
-import taskToday from "../../assets/overview/task-Today.png";
 import { Clock } from "lucide-react";
 import * as React from "react";
 
@@ -7,14 +6,16 @@ type TaskCardProps = {
     role: string;
     time: string;
     percentage: number;
+    imageUrl: string;
 };
 
-const TaskCard: React.FC<TaskCardProps> = ({ title, role, time, percentage }) => {
+const TaskCard: React.FC<TaskCardProps> = ({ title, role, time, percentage,imageUrl }) => {
     return (
-        <div className="flex flex-col gap-4 ">
+        <div className="flex flex-col gap-4 shadow-lg rounded-md p-5 ">
             {/* Task Image */}
-            <div className="w-full">
-                <img src={taskToday} alt="Task" className="w-full rounded-md" />
+            <div className={`w-full `} >
+
+                <img src={imageUrl} alt="Task" className="w-full rounded-md" />
             </div>
 
             {/* Task Details */}
