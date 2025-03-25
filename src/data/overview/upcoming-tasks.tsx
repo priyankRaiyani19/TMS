@@ -1,4 +1,4 @@
-import upcoming from "../assets/overview/upcoming.png"
+import upcoming from "../../assets/overview/upcoming.png"
 
 export interface Tasks {
     title: string;

@@ -7,7 +7,7 @@ import {
     startOfWeek,
     endOfWeek,
 } from "date-fns";
-import {DAYS_OF_WEEK} from "../../../data/day-of-week.tsx";
+import {DAYS_OF_WEEK} from "../../../data/overview/day-of-week.tsx";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 
 

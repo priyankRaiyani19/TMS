@@ -19,7 +19,7 @@ const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) =
     }
 
     return (
-        <div className="p-4 sticky flex flex-col grow justify-between items-center bg-white shadow-md relative gap-[2rem]">
+        <div className="p-4 sticky flex flex-col grow justify-between items-center bg-white shadow-md  gap-[2rem]">
             <div className={`flex w-full justify-between items-center px-[2rem] `}>
                 <div className={`flex lg:flex-row flex-col gap-[2rem]`}>
                     <button className="lg:hidden max-w-[2rem] bg-black" onClick={handleSidebar}>

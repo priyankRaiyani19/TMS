@@ -7,8 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import CTAButton from "../components/common/CTAButton.tsx";
 import DynamicDropdown from "../components/core/Settings/DynamicDropdown.tsx";
 import Switch from "react-switch";
-import timeFormatOptions from "../data/timeFormatOptions.ts";
-import languageOptions from "../data/languages.ts";
+import timeFormatOptions from "../data/settings/timeFormatOptions.ts";
+import languageOptions from "../data/settings/languages.ts";
 import Navbar from "../components/common/Navbar.tsx";
 
 // Validation Schema

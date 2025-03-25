@@ -1,5 +1,5 @@
 // @ts-ignore
-import profile from "../assets/overview/profile.png"
+import profile from "../../assets/overview/profile.png"
 
 export interface Mentor {
     id: number;

@@ -2,16 +2,16 @@ import {More, Notification} from "iconsax-react";
 import Calendar from "../components/core/overview/Calender.tsx";
 import TaskCard from "../components/common/TaskCard.tsx";
 import CTAButton from "../components/common/CTAButton.tsx";
-import {TaskDetails} from "../data/task-details.tsx";
+import {TaskDetails} from "../data/overview/task-details.tsx";
 import ChartTooltip from "../components/core/overview/ChartTooltip.tsx";
 import RunningTask from "../components/core/overview/RunningTask.tsx";
 
-import {UpcomingTask} from "../data/upcoming-tasks.tsx";
+import {UpcomingTask} from "../data/overview/upcoming-tasks.tsx";
 import todayTask from '../assets/overview/task-Today.png';
 import TaskSlider from "../components/common/TaskSlider.tsx";
 
 import MentorSlider from "../components/common/MentorSlider.tsx";
-import {monthlyMentors} from "../data/monthly-mentors.tsx";
+import {monthlyMentors} from "../data/overview/monthly-mentors.tsx";
 // import SidebarToggle from "../hooks/SidebarToggle.tsx";
 // import SidebarToggle from "../hooks/SidebarToggle.tsx";
 
