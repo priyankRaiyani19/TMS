@@ -35,7 +35,7 @@ const ActivityChart: React.FC = () => {
         <div className="bg-white shadow-md rounded-lg  w-full">
             <div className="flex justify-between items-center p-4">
                 <h3 className="text-lg font-semibold">Activity</h3>
-                <span className="text-gray-500 text-sm">This Week ▼</span>
+                <span className="text-black hover:cursor-pointer text-sm">This Week ▼</span>
             </div>
 
             {/* Mobile-friendly width */}

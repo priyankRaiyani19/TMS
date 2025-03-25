@@ -10,26 +10,28 @@ interface MentorProps {
     rating: number;
     reviews: number;
     imageUrl: string;
+    isActive: boolean;
 }
 
-const MonthlyMentors: React.FC<MentorProps> = ({
-                                                   name,
-                                                   role,
-                                                   tasks,
-                                                   rating,
-                                                   reviews,
-                                                   imageUrl,
-                                               }) => {
+const MentorsCard: React.FC<MentorProps> = ({
+                                                name,
+                                                role,
+                                                tasks,
+                                                rating,
+                                                reviews,
+                                                imageUrl,
+                                                isActive=false,
+                                            }) => {
     const [isFollowed, setIsFollowed] = useState(false);
 
     return (
         <div
-            className="bg-white min-w-[20.5rem] lg:max-w-[22.5rem] min-h-[8.75rem] shadow-md rounded-[0.625rem] p-4 flex items-center space-x-4 w-96">
+            className="bg-white min-w-[20.5rem] lg:max-w-[22.5rem] min-h-[8.75rem] shadow-md rounded-[0.625rem] p-4 flex items-center space-x-4  ">
 
 
             {/* User Info */}
-            <div className="flex-1">
-                <div className="flex justify-between items-center">
+            <div className="flex-1 ">
+                <div className="flex justify-between items-center w-full ">
 
                     <div className={`flex items-center justify-center gap-[0.5rem] `}>
                         <img
@@ -54,6 +56,10 @@ const MonthlyMentors: React.FC<MentorProps> = ({
                     </button>
                 </div>
 
+                <div className={`${isActive?"block":"hidden"} text-[0.875rem] text-secondary-300 py-[1rem] `}>
+                    Hi, I'm {name}. I am a doctoral student at Harvard University majoring in Web . . .
+                </div>
+
 
                 {/* Task Count & Rating */}
                 <div className="flex items-center space-x-4 mt-2 text-gray-700 text-sm">
@@ -69,15 +75,17 @@ const MonthlyMentors: React.FC<MentorProps> = ({
 
                         </div>
 
-                        <div className="flex items-center font-medium">
-                            <div>
-                                <IoStar/>
-                            </div>
-                            <div>
-                                {rating}
-                            </div>
-                            <div>
-                                ({reviews} Reviews)
+                        <div className="flex items-center font-medium gap-[0.5rem] ">
+
+                            <IoStar color="#FFB054"/>
+
+                            <div className={`flex`}>
+                                <div>
+                                    {rating}
+                                </div>
+                                <div>
+                                    ({reviews} Reviews)
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,4 +95,4 @@ const MonthlyMentors: React.FC<MentorProps> = ({
     );
 };
 
-export default MonthlyMentors;
+export default MentorsCard;

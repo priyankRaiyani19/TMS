@@ -1,20 +1,20 @@
 import Sidebar from '../components/common/Sidebar.tsx';
 import {Outlet} from 'react-router-dom';
-import Navbar from "../components/common/Navbar.tsx";
+// import Navbar from "../components/common/Navbar.tsx";
 
 
 const Layout = () => {
 
     return (
-        <div className={`flex overflow-x-hidden`}>
+        <div className={`flex `}>
             <Sidebar/>
-            <div className={`flex flex-col w-full`}>
-                <Navbar/>
-                <div className={`w-full`}>
+
+                {/*<Navbar/>*/}
+                <div className={`grow w-[74.25rem]`}>
                     <Outlet/>
                 </div>
             </div>
-        </div>
+
     );
 };
 

@@ -1,25 +1,18 @@
 import { sidebar, SidebarItem } from "../../data/sidebar.tsx";
 import { NavLink } from "react-router-dom";
-import {CloseCircle, HambergerMenu} from 'iconsax-react';
-import SidebarToggle from '../../hooks/SidebarToggle.tsx'
+import { CloseCircle} from 'iconsax-react';
+import useToggle from '../../hooks/UseToggel.tsx';
+import BookSquare from "../../assets/sidebar/BookSquare.tsx"
+
 const Sidebar = () => {
-  const {isOpen, setIsOpen}= SidebarToggle();
+  const {isOpen, setIsOpen}= useToggle();
 
   return (
-    <div>
-      {/* Mobile Toggle Button */}
-      <button
-        className={`md:hidden fixed z-50 py-3 px-3 text-white p-2 rounded  
-        ${
-          isOpen ? "hidden" : "block"}`}
-        onClick={() => setIsOpen(true)}
-      >
-        <HambergerMenu size="32" color="#8E92BC"/>
-      </button>
+    <div className={`min-h-[64rem] `}>
 
       {/* Sidebar Container */}
       <div
-        className={`fixed md:relative top-0 left-0 min-h-[64rem] h-screen w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
+        className={`fixed md:relative top-0 left-0 min-h-[64rem]   w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
         transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
@@ -35,8 +28,10 @@ const Sidebar = () => {
         {/* Logo */}
         <div className="flex flex-col gap-[2rem]">
           <div className="flex items-center text-[2rem] gap-[1rem] font-semibold">
-            {/*<img src={logo} alt="logo" />*/}
+            {/*<img src={BookSquare} alt="logo" />*/}
+            <BookSquare />
             <h1>DNX</h1>
+
           </div>
 
           {/* Sidebar Links */}

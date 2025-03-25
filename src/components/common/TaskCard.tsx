@@ -11,7 +11,8 @@ type TaskCardProps = {
 
 const TaskCard: React.FC<TaskCardProps> = ({ title, role, time, percentage,imageUrl }) => {
     return (
-        <div className="flex flex-col gap-4 shadow-lg rounded-md p-5 ">
+
+        <div className="flex grow flex-col  gap-4 p-5 w-[20.5rem] h-[20rem] bg-white rounded-[0.875rem]">
             {/* Task Image */}
             <div className={`w-full `} >
 
@@ -42,7 +43,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, role, time, percentage,image
                     {/* Circle Indicator */}
                     <div
                         className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-blue-500 border-2 border-white rounded-full shadow-md"
-                        style={{ left: `calc(${percentage}% - 8px)` }} // Adjusting for circle's width
+                        style={{ left: `calc(${percentage}% - 8px)` }}
                     ></div>
                 </div>
             </div>

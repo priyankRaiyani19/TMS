@@ -1,3 +1,4 @@
+// @ts-ignore
 import profile from "../assets/overview/profile.png"
 
 export interface Mentor {
@@ -10,7 +11,7 @@ export interface Mentor {
     imageUrl: string;
 }
 
-export const monthlyMentors = [
+export const monthlyMentors:Mentor[] = [
     {
         id: 1,
         name: "Pj Raiyani",
@@ -19,7 +20,6 @@ export const monthlyMentors = [
         rating: 4.7,
         reviews: 750,
         imageUrl: profile
-
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ export const monthlyMentors = [
         tasks: 10,
         rating: 4.7,
         reviews: 750,
-        imageUrl: profile,
+        imageUrl: profile
     },
     {
         id: 3,
@@ -40,14 +40,13 @@ export const monthlyMentors = [
         imageUrl: profile
     },
     {
-        id:4,
+        id: 4,
         name: "Priyank Raiyani",
         role: "DevOps",
         tasks: 40,
         rating: 4.7,
         reviews: 750,
         imageUrl: profile
-
     },
     {
         id: 5,
@@ -57,7 +56,6 @@ export const monthlyMentors = [
         rating: 4.7,
         reviews: 750,
         imageUrl: profile
-
     },
     {
         id: 6,
@@ -67,7 +65,6 @@ export const monthlyMentors = [
         rating: 4,
         reviews: 7150,
         imageUrl: profile
-
     },
 
 ]
