@@ -1,15 +1,14 @@
 import { sidebar, SidebarItem } from "../../data/sidebar.tsx";
 import { NavLink } from "react-router-dom";
 import { CloseCircle} from 'iconsax-react';
-import useToggle from '../../hooks/UseToggel.tsx';
+import { useSidebar } from '../../hooks/UseSidebar.tsx'; // New import
 import BookSquare from "../../assets/sidebar/BookSquare.tsx"
 
 const Sidebar = () => {
-  const {isOpen, setIsOpen}= useToggle();
+  const { isOpen, setIsOpen } = useSidebar(); // Use the context hook
 
   return (
-    <div className={`min-h-[64rem] lg:min-w-[15.75rem] `}>
-
+    <div className={`min-h-[64rem] lg:min-w-[15.75rem]`}>
       {/* Sidebar Container */}
       <div
         className={`fixed md:relative top-0 left-0 min-h-[64rem] h-full w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
@@ -28,10 +27,8 @@ const Sidebar = () => {
         {/* Logo */}
         <div className="flex flex-col gap-[2rem]">
           <div className="flex items-center text-[2rem] gap-[1rem] font-semibold">
-            {/*<img src={BookSquare} alt="logo" />*/}
             <BookSquare />
             <h1>DNX</h1>
-
           </div>
 
           {/* Sidebar Links */}
@@ -82,7 +79,7 @@ const Sidebar = () => {
       {/* Overlay on Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0  bg-opacity-10 backdrop-blur-xl z-30 md:hidden"
+          className="fixed inset-0 bg-opacity-10 backdrop-blur-xl z-30 md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

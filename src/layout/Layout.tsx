@@ -1,15 +1,17 @@
 import Sidebar from "../components/common/Sidebar.tsx";
+import Navbar from "../components/common/Navbar.tsx";
 import { Outlet } from "react-router-dom";
-// import Navbar from "../components/common/Navbar.tsx";
 
 const Layout = () => {
     return (
         <div className={`flex`}>
             <Sidebar />
 
-            {/*<Navbar/>*/}
-            <div className={`grow w-[74.25rem] `}>
-                <Outlet />
+            <div className={`grow w-full md:w-[74.25rem] flex flex-col`}>
+                <Navbar name="Dashboard" isActive={true} />
+                <div className="p-4">
+                    <Outlet />
+                </div>
             </div>
         </div>
     );

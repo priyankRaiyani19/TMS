@@ -1,33 +1,29 @@
-// import {useLocation} from "react-router-dom";
 import {Notification, HambergerMenu, SearchNormal1, Element, Sort, Setting4} from "iconsax-react";
-import useToggle from "../../hooks/UseToggel.tsx";
+import { useSidebar } from "../../hooks/UseSidebar"; // Updated import
 import {useState} from "react";
 
 const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) => {
-    // const location = useLocation();
-    // console.log("this is path ", location.pathname)
-    const {isOpen, setIsOpen} = useToggle();
+    const { isOpen, toggleSidebar } = useSidebar(); // Use context hook
     const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
 
-    const handleSidebar = () => {
-        setIsOpen(!isOpen);
-        console.log(isOpen)
-    }
     const handleDropDown = () => {
         setIsDropDownOpen(!isDropDownOpen);
-        console.log(isDropDownOpen);
     }
 
     return (
-        <div className="p-4 sticky flex flex-col grow justify-between items-center bg-white shadow-md  gap-[2rem]">
-            <div className={`flex w-full justify-between items-center px-[2rem] `}>
-                <div className={`flex lg:flex-row flex-col gap-[2rem]`}>
-                    <button className="lg:hidden max-w-[2rem] bg-black" onClick={handleSidebar}>
-                        <HambergerMenu size={32} className="text-secondary-300"/>
+        <div className="p-4 sticky flex flex-col grow justify-between items-center bg-white shadow-md gap-[2rem]">
+            <div className={`flex w-full justify-between items-center px-[2rem]`}>
+                <div className={`flex items-center gap-[2rem]`}>
+                    {/* Hamburger Menu for Mobile */}
+                    <button 
+                        className="md:hidden block max-w-[2rem]" 
+                        onClick={toggleSidebar} // Use toggleSidebar from context
+                    >
+                        <HambergerMenu size={32} color="#8E92BC"/>
                     </button>
 
-                    <div className=" lg:blockgap-5">
-                        <h1 className="text-2xl font-medium">{name} </h1>
+                    <div className="lg:block">
+                        <h1 className="text-2xl font-medium">{name}</h1>
                     </div>
                 </div>
                 <div className="flex items-center gap-[1rem]">
@@ -41,7 +37,7 @@ const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) =
             </div>
 
             <div
-                className={`flex w-full gap-[1rem] md:gap-0 md:justify-between items-center  px-[1rem] ${isActive ? "block" : "hidden"} `}>
+                className={`flex w-full gap-[1rem] md:gap-0 md:justify-between items-center px-[1rem] ${isActive ? "block" : "hidden"}`}>
 
                 <div
                     className="flex items-center border-2 border-[#E3E1E1] rounded-lg min-h-[35px] px-3 relative max-w-[300px]">
@@ -69,7 +65,6 @@ const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) =
                         className="md:hidden flex items-center gap-2 cursor-pointer border-2 border-[#E3E1E1] rounded-[0.8rem] p-2"
                         onClick={handleDropDown}>
                         <Setting4 size="24" color="#8e92bc"/>
-
                     </div>
 
                     {isDropDownOpen && (
@@ -83,10 +78,7 @@ const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) =
                         </div>
                     )}
                 </div>
-
             </div>
-
-
         </div>
     )
 };

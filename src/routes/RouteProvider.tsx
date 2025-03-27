@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { SidebarProvider } from "../hooks/UseSidebar.tsx"; // New import
 import Layout from "../layout/Layout.tsx";
 import Overview from "../pages/Overview.tsx";
 import Task from "../pages/Task.tsx";
@@ -10,17 +11,19 @@ import TaskDetail from "../pages/TaskDetail.tsx";
 
 const RouteProvider = () => {
     return (
-        <Routes>
-            <Route path="/" element={<Navigate to="/overview" />} />
-            <Route path="/" element={<Layout />}>
-                <Route index path="overview" element={<Overview />} />
-                <Route path="task" element={<Task />} />
-                <Route path="details" element={<TaskDetail />} />
-                <Route path="mentors" element={<Mentors />} />
-                <Route path="messages" element={<Message />} />
-                <Route path="settings" element={<Settings />} />
-            </Route>
-        </Routes>
+        <SidebarProvider>
+            <Routes>
+                <Route path="/" element={<Navigate to="/overview" />} />
+                <Route path="/" element={<Layout />}>
+                    <Route index path="overview" element={<Overview />} />
+                    <Route path="task" element={<Task />} />
+                    <Route path="details" element={<TaskDetail />} />
+                    <Route path="mentors" element={<Mentors />} />
+                    <Route path="messages" element={<Message />} />
+                    <Route path="settings" element={<Settings />} />
+                </Route>
+            </Routes>
+        </SidebarProvider>
     );
 };
 
