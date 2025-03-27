@@ -8,11 +8,11 @@ const Sidebar = () => {
   const {isOpen, setIsOpen}= useToggle();
 
   return (
-    <div className={`min-h-[64rem] `}>
+    <div className={`min-h-[64rem] lg:min-w-[15.75rem] `}>
 
       {/* Sidebar Container */}
       <div
-        className={`fixed md:relative top-0 left-0 min-h-[64rem]   w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
+        className={`fixed md:relative top-0 left-0 min-h-[64rem] h-full w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
         transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
@@ -41,9 +41,9 @@ const Sidebar = () => {
                 to={item.path}
                 key={item.id}
                 className={({ isActive }) =>
-                  `py-[0.8rem] px-[1rem] flex gap-[1.5rem] rounded-[0.625rem] ${
-                    isActive ? "bg-gray-300 text-black" : "hover:bg-secondary-100"
-                  }`
+                  `py-[0.55rem] max-w-[11.75rem] px-[1rem] flex gap-[1.5rem] rounded-[0.625rem] ${
+                    isActive ? "bg-gray-300 text-black" : "hover:bg-secondary-100 text-secondary-300  "
+                  } font-semibold`
                 }
                 onClick={() => setIsOpen(false)}
               >

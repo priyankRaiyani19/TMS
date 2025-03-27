@@ -2,15 +2,10 @@ import RouteProvider from './routes/RouteProvider.tsx';
 import {MantineProvider} from "@mantine/core";
 import {theme} from "./theme.ts";
 
-
 function App() {
-
-
-    return(
-
+    return (
         <MantineProvider theme={theme}>
-
-        <RouteProvider/>
+            <RouteProvider/>
         </MantineProvider>
     )
 }

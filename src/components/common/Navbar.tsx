@@ -41,7 +41,7 @@ const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) =
             </div>
 
             <div
-                className={`flex w-full justify-between items-center gap-5 px-[1rem] ${isActive ? "block" : "hidden"} `}>
+                className={`flex w-full gap-[1rem] md:gap-0 md:justify-between items-center  px-[1rem] ${isActive ? "block" : "hidden"} `}>
 
                 <div
                     className="flex items-center border-2 border-[#E3E1E1] rounded-lg min-h-[35px] px-3 relative max-w-[300px]">

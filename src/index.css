@@ -2,19 +2,30 @@
 @layer "@radix-ui/themes/styles.css";
 
 
-
 #root {
     width: 100%;
     height: 100%;
 }
 
 
+@layer base {
+    @font-face {
+        font-family: 'Plus Jakarta Sans';
+        src: url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        font-weight: 400;
+        font-style: normal;
+    }
+}
+
 body {
     @apply bg-[#F5F5F7];
+    @apply font-jakarta;
 }
 
 
 @theme {
+
+    --font-jakarta: Plus Jakarta Sans;
 
     /*Primary Neutral Palette*/
     --color-primary-900: #10197A;

@@ -8,13 +8,9 @@ const MentorSlider = ({ title, mentors = [] }) => {
     const [mentorIndex, setMentorIndex] = useState(0);
     const [mentorDirection, setMentorDirection] = useState(1);
     const [mentorsPerPage, setMentorsPerPage] = useState(1);
-    
-    // Create a circular array for infinite scrolling
-    const circularMentors = [...mentors, ...mentors];
 
-    useEffect(() => {        
+    useEffect(() => {
         const calculateMentorsPerPage = () => {
-            console.log(containerRef);
             if (containerRef.current) {
                 const containerWidth = containerRef.current.clientWidth;
                 const sidebarWidth = document.querySelector(".sidebar")?.offsetWidth || 250;
@@ -33,54 +29,52 @@ const MentorSlider = ({ title, mentors = [] }) => {
     const totalMentors = mentors.length;
 
     const handleNext = () => {
-        setMentorDirection(1);
-        setMentorIndex((prevIndex) => (prevIndex + 1) % totalMentors);
+        if (mentorIndex + mentorsPerPage < totalMentors) {
+            setMentorDirection(1);
+            setMentorIndex((prevIndex) => prevIndex + 1);
+        }
     };
 
     const handlePrev = () => {
-        setMentorDirection(-1);
-        setMentorIndex((prevIndex) =>
-            prevIndex <= 0 ? totalMentors - 1 : prevIndex - 1
-        );
+        if (mentorIndex > 0) {
+            setMentorDirection(-1);
+            setMentorIndex((prevIndex) => prevIndex - 1);
+        }
     };
 
     return (
-        <div ref={containerRef} className="mentor-slider flex flex-col  gap-[1rem]">
+        <div ref={containerRef} className="flex flex-col gap-[1rem]">
             <div className="flex justify-between items-center">
-                <h2 className="text-lg font-bold">{title}</h2>
+                <h2 className="text-[1.5rem] font-bold">{title}</h2>
                 <div className="flex gap-2">
-                    <button onClick={handlePrev} className="p-2 ">
-                        <ArrowLeft2 size="32" color="#000" />
+                    <button onClick={handlePrev} disabled={mentorIndex === 0} className="p-2 disabled:opacity-50">
+                        <ArrowLeft2 size="24" color="#000" />
                     </button>
-                    <button onClick={handleNext} className="p-2  ">
-                        <ArrowRight2 size="32" color="#000" />
+                    <button onClick={handleNext} disabled={mentorIndex + mentorsPerPage >= totalMentors} className="p-2 disabled:opacity-50">
+                        <ArrowRight2 size="24" color="#000" />
                     </button>
                 </div>
             </div>
 
-            <div className="relative w-full overflow-hidden p-4">
+            <div className="relative w-full">
                 <AnimatePresence initial={false} custom={mentorDirection} mode="wait">
                     <motion.div
                         key={mentorIndex}
-                        className="flex gap-8"
+                        className="flex gap-[2rem]"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1, transition: { duration: 0.25, ease: "easeOut" } }}
                         exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.25, ease: "easeIn" } }}
                     >
-                        {Array.from({ length: mentorsPerPage }).map((_, i) => {
-                            const currentIndex = (mentorIndex + i) % totalMentors;
-                            const mentor = circularMentors[currentIndex];
-                            return (
-                                <div 
-                                    key={`${mentor.id}-${i}`}
-                                    style={{
-                                        flex: `0 0 calc(${100 / mentorsPerPage}% - ${(mentorsPerPage - 1) * 32 / mentorsPerPage}px)`,
-                                    }}
-                                >
-                                    <MentorsCard {...mentor} />
-                                </div>
-                            );
-                        })}
+                        {mentors.slice(mentorIndex, mentorIndex + mentorsPerPage).map((mentor, i) => (
+                            <div
+                                key={`${mentor.id}-${i}`}
+                                style={{
+                                    flex: `0 0 calc(${100 / mentorsPerPage}% - ${(mentorsPerPage - 1) * 70 / mentorsPerPage}px)`,
+                                }}
+                            >
+                                <MentorsCard {...mentor} />
+                            </div>
+                        ))}
                     </motion.div>
                 </AnimatePresence>
             </div>

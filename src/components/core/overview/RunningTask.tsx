@@ -4,21 +4,23 @@ const RunningTask = () => {
     const progressPercentage = 45;
 
     return (
-        <div className="bg-[#0c0c1d] text-white p-4 sm:p-6 rounded-lg shadow-md w-full">
-            <h2 className="text-sm sm:text-base font-medium">Running Task</h2>
-            <p className="text-4xl font-bold mt-1">{completedTasks}</p>
+        <div className="bg-[#0c0c1d] text-white p-[1.25rem] flex justify-between lg:flex-col rounded-[0.625rem] shadow-md lg:min-w-[12.125rem] lg:min-h-[13.375rem] ">
+           <div className={`flex flex-col gap-[1rem]`}>
+               <h2 className="text-sm sm:text-base font-medium">Running Task</h2>
+               <p className="text-4xl font-bold mt-1">{completedTasks}</p>
+           </div>
 
             {/* Main Layout Container */}
-            <div className="flex items-center justify-between mt-2 sm:mt-4">
+            <div className="flex items-center gap-[1rem] mt-2 sm:mt-4">
 
                 {/* Progress Circle & Percentage */}
-                <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center">
-                    <svg className="w-full h-full" viewBox="0 0 100 100">
+                <div className="relative w-[4.25rem] h-[4.25rem  flex items-center ">
+                    <svg className="w-[4.25rem] h-[4.25rem]" viewBox="0 0 100 100">
                         {/* Background Circle */}
                         <circle
                             cx="50"
                             cy="50"
-                            r="40"
+                            r="47"
                             stroke="gray"
                             strokeWidth="5"
                             fill="none"
@@ -27,7 +29,7 @@ const RunningTask = () => {
                         <circle
                             cx="50"
                             cy="50"
-                            r="40"
+                            r="47"
                             stroke="blue"
                             strokeWidth="5"
                             fill="none"
@@ -52,7 +54,7 @@ const RunningTask = () => {
 
                 {/* Total Task Count (SVG + Text in Same Div) */}
                 <div className="flex flex-col items-center">
-                    <p className="text-3xl font-bold">{totalTasks}</p>
+                    <p className="text-[1.25rem] font-bold">{totalTasks}</p>
                     <p className="text-gray-400 text-xs sm:text-sm">Task</p>
                 </div>
             </div>

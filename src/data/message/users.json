@@ -1,0 +1,156 @@
+{
+    "users": [
+        {
+            "name": "Angel Prison",
+            "message": "Thank you very much. I'm glad ...",
+            "time": "active",
+            "unread": true,
+            "avatar": "/avatars/angelie.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "Jakob Saris",
+            "message": "You: Sure! let me tell you about w...",
+            "time": "2 m ago",
+            "unread": false,
+            "avatar": "/avatars/jakob.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Emery Korsgard",
+            "message": "There's. You are very helpful...",
+            "time": "3 m ago",
+            "unread": true,
+            "avatar": "/avatars/emery.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "Jeremy Zucker",
+            "message": "You: Sure! let me teach you about...",
+            "time": "4 m ago",
+            "unread": false,
+            "avatar": "/avatars/jeremy.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Nadia Lauren",
+            "message": "Is there anything I can help? Just...",
+            "time": "5 m ago",
+            "unread": true,
+            "avatar": "/avatars/nadia.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "Jason Statham",
+            "message": "You: Sure! let me share about...",
+            "time": "6 m ago",
+            "unread": false,
+            "avatar": "/avatars/jason.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Angel Kimberly",
+            "message": "Okay, I know very well about it...",
+            "time": "7 m ago",
+            "unread": true,
+            "avatar": "/avatars/angel.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "Jason Momoa",
+            "message": "You: Sure! let me tell you about...",
+            "time": "7 m ago",
+            "unread": false,
+            "avatar": "/avatars/jasonm.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Sarah Wilson",
+            "message": "Can you help me with the project?",
+            "time": "10 m ago",
+            "unread": true,
+            "avatar": "/avatars/sarah.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "Michael Chen",
+            "message": "You: I'll review it right away",
+            "time": "15 m ago",
+            "unread": false,
+            "avatar": "/avatars/michael.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Emma Davis",
+            "message": "The design looks great!",
+            "time": "20 m ago",
+            "unread": true,
+            "avatar": "/avatars/emma.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "David Lee",
+            "message": "You: Thanks for the feedback",
+            "time": "25 m ago",
+            "unread": false,
+            "avatar": "/avatars/david.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Sophie Anderson",
+            "message": "When is the next meeting?",
+            "time": "30 m ago",
+            "unread": true,
+            "avatar": "/avatars/sophie.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "James Wilson",
+            "message": "You: Tomorrow at 10 AM",
+            "time": "35 m ago",
+            "unread": false,
+            "avatar": "/avatars/james.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Olivia Brown",
+            "message": "Great, I'll be there",
+            "time": "40 m ago",
+            "unread": true,
+            "avatar": "/avatars/olivia.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "William Taylor",
+            "message": "You: Perfect, see you then",
+            "time": "45 m ago",
+            "unread": false,
+            "avatar": "/avatars/william.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Ava Martinez",
+            "message": "Can you share the documents?",
+            "time": "1 h ago",
+            "unread": true,
+            "avatar": "/avatars/ava.jpg",
+            "isOnline": true
+        },
+        {
+            "name": "Lucas Johnson",
+            "message": "You: Sure, I'll send them now",
+            "time": "1 h ago",
+            "unread": false,
+            "avatar": "/avatars/lucas.jpg",
+            "isOnline": false
+        },
+        {
+            "name": "Mia Rodriguez",
+            "message": "Thanks for your help!",
+            "time": "1 h ago",
+            "unread": true,
+            "avatar": "/avatars/mia.jpg",
+            "isOnline": true
+        }
+    ]
+} 

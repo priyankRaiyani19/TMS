@@ -16,75 +16,69 @@ interface TaskSliderProps {
     title: string;
     tasks: Task[];
     cardWidth?: number;
-    sidebarWidth?: number;
     maxCards?: number;
 }
 
-const TaskSlider: ({ title, tasks, cardWidth, sidebarWidth, maxCards }: TaskSliderProps) => JSX.Element = ({
-                                                                                                               title,
-                                                                                                               tasks = [],
-                                                                                                               cardWidth = 250,
-                                                                                                               sidebarWidth = 252,
-                                                                                                               maxCards
-                                                                                                           }: TaskSliderProps) => {
+const TaskSlider = ({ title, tasks = [], cardWidth = 250, maxCards }: TaskSliderProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
     const [visibleCards, setVisibleCards] = useState<number[]>([]);
     const [cardsToShow, setCardsToShow] = useState(3);
 
-    const circularTasks = [...tasks, ...tasks];
-
     useEffect(() => {
         const updateVisibleCards = () => {
             if (containerRef.current) {
                 const containerWidth = containerRef.current.clientWidth;
-                const isMobile = window.innerWidth <= 640;
+                const windowWidth = window.innerWidth;
+                let newCardsToShow = 3;
 
-                const isOverflowing = containerWidth < cardWidth * 3;
-                const possibleCards = isOverflowing ? 3 : Math.floor(containerWidth / cardWidth);
+                if (windowWidth <= 640) {
+                    newCardsToShow = 1;
+                } else if (windowWidth <= 1024) {
+                    newCardsToShow = 2;
+                } else {
+                    newCardsToShow = Math.max(3, Math.floor(containerWidth / cardWidth));
+                }
 
-                const optimalCardCount = maxCards ? Math.min(possibleCards, maxCards) : possibleCards;
-                const finalCardCount = isMobile ? 1 : Math.max(1, Math.min(3, optimalCardCount));
-                setCardsToShow(finalCardCount);
-                console.log(cardsToShow )
+                if (maxCards) {
+                    newCardsToShow = Math.min(newCardsToShow, maxCards);
+                }
 
-                const indices = Array.from(
-                    { length: Math.min(finalCardCount, tasks.length) },
-                    (_, i) => (currentIndex + i) % tasks.length
-                );
-
-                setVisibleCards(indices);
+                setCardsToShow(newCardsToShow);
+                setVisibleCards(tasks.slice(currentIndex, currentIndex + newCardsToShow).map((_, i) => currentIndex + i));
             }
         };
 
         updateVisibleCards();
         window.addEventListener("resize", updateVisibleCards);
         return () => window.removeEventListener("resize", updateVisibleCards);
-    }, [currentIndex, tasks.length, cardWidth, maxCards, sidebarWidth]);
+    }, [currentIndex, tasks.length, cardWidth, maxCards]);
 
     const handleNext = () => {
-        setDirection(1);
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % tasks.length);
+        if (currentIndex + cardsToShow < tasks.length) {
+            setDirection(1);
+            setCurrentIndex((prevIndex) => prevIndex + 1);
+        }
     };
 
     const handlePrev = () => {
-        setDirection(-1);
-        setCurrentIndex((prevIndex) =>
-            prevIndex <= 0 ? tasks.length - 1 : prevIndex - 1
-        );
+        if (currentIndex > 0) {
+            setDirection(-1);
+            setCurrentIndex((prevIndex) => prevIndex - 1);
+        }
     };
 
     return (
-        <div ref={containerRef} className="task-slider flex flex-col gap-4">
-            <div className="flex justify-between items-center">
-                <h2 className="text-lg font-bold">{title}</h2>
+        <div ref={containerRef} className="flex flex-col w-full">
+            <div className="flex justify-between items-center mb-4">
+                <h2 className="text-[1.5rem] font-bold">{title}</h2>
                 <div className="flex gap-2">
-                    <button onClick={handlePrev} className="p-2 hover:bg-gray-100 rounded-full">
-                        <ArrowLeft2 size="32" color="#000" />
+                    <button onClick={handlePrev} disabled={currentIndex === 0} className="p-2 hover:bg-gray-100 rounded-full disabled:opacity-50">
+                        <ArrowLeft2 size="24" color="#000" />
                     </button>
-                    <button onClick={handleNext} className="p-2 hover:bg-gray-100 rounded-full">
-                        <ArrowRight2 size="32" color="#000" />
+                    <button onClick={handleNext} disabled={currentIndex + cardsToShow >= tasks.length} className="p-2 hover:bg-gray-100 rounded-full disabled:opacity-50">
+                        <ArrowRight2 size="24" color="#000" />
                     </button>
                 </div>
             </div>
@@ -93,23 +87,17 @@ const TaskSlider: ({ title, tasks, cardWidth, sidebarWidth, maxCards }: TaskSlid
                 <AnimatePresence initial={false} custom={direction} mode="wait">
                     <motion.div
                         key={currentIndex}
-                        className="flex gap-4"
+                        className="flex gap-[2rem]"
                         custom={direction}
                         initial={{ x: direction > 0 ? 100 : -100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1, transition: { duration: 0.3, ease: "easeOut" } }}
-                        exit={{ x: direction > 0 ? -100 : 100, opacity: 0, transition: { duration: 0.3, ease: "easeIn" } }}
+                        animate={{ x: 0, opacity: 1, transition: { duration: 0.5 } }}
+                        exit={{ x: direction > 0 ? -100 : 100, opacity: 0, transition: { duration: 0.2 } }}
                     >
-                        {visibleCards.map((taskIndex, index) => {
-                            const task = circularTasks[taskIndex];
-                            return (
-                                <div
-                                    key={`${task.id}-${index}`}
-                                    className="flex-1 gap-[2rem]"
-                                >
-                                    <TaskCard {...task} />
-                                </div>
-                            );
-                        })}
+                        {visibleCards.map((taskIndex) => (
+                            <div key={taskIndex} className="flex-1">
+                                <TaskCard {...tasks[taskIndex]} />
+                            </div>
+                        ))}
                     </motion.div>
                 </AnimatePresence>
             </div>
