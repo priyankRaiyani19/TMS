@@ -1,28 +1,18 @@
-import { useState } from "react";
-import logo from "../../assets/sidebar/book-square.svg";
-import { sidebarData, SidebarItem } from "../../data/Sidebar.data.tsx";
+import { sidebar, SidebarItem } from "../../data/sidebar.tsx";
 import { NavLink } from "react-router-dom";
-import { HambergerMenu } from 'iconsax-react';
+import { CloseCircle} from 'iconsax-react';
+import useToggle from '../../hooks/UseToggel.tsx';
+import BookSquare from "../../assets/sidebar/BookSquare.tsx"
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const {isOpen, setIsOpen}= useToggle();
 
   return (
-    <div>
-      {/* Mobile Toggle Button */}
-      <button
-        className={`md:hidden fixed z-50 py-3 px-3 text-white p-2 rounded  
-        ${
-          isOpen ? "hidden" : "block"}`}
-
-        onClick={() => setIsOpen(true)}
-      >
-        <HambergerMenu size="32" color="#8E92BC"/>
-      </button>
+    <div className={`min-h-[64rem] lg:min-w-[15.75rem] `}>
 
       {/* Sidebar Container */}
       <div
-        className={`fixed md:relative top-0 left-0 min-h-[64rem] h-screen w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
+        className={`fixed md:relative top-0 left-0 min-h-[64rem] h-full w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
         transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
@@ -32,26 +22,28 @@ const Sidebar = () => {
           className="md:hidden absolute top-4 right-4 text-2xl"
           onClick={() => setIsOpen(false)}
         >
-          ✖
+          <CloseCircle size="32" color="#000"/>
         </button>
 
         {/* Logo */}
         <div className="flex flex-col gap-[2rem]">
           <div className="flex items-center text-[2rem] gap-[1rem] font-semibold">
-            <img src={logo} alt="logo" />
+            {/*<img src={BookSquare} alt="logo" />*/}
+            <BookSquare />
             <h1>DNX</h1>
+
           </div>
 
           {/* Sidebar Links */}
           <div className="w-full flex flex-col gap-[1rem]">
-            {sidebarData.map((item: SidebarItem) => (
+            {sidebar.map((item: SidebarItem) => (
               <NavLink
                 to={item.path}
                 key={item.id}
                 className={({ isActive }) =>
-                  `py-[0.8rem] px-[1rem] flex gap-[1.5rem] rounded-[0.625rem] ${
-                    isActive ? "bg-gray-300 text-black" : "hover:bg-secondary-100"
-                  }`
+                  `py-[0.55rem] max-w-[11.75rem] px-[1rem] flex gap-[1.5rem] rounded-[0.625rem] ${
+                    isActive ? "bg-gray-300 text-black" : "hover:bg-secondary-100 text-secondary-300  "
+                  } font-semibold`
                 }
                 onClick={() => setIsOpen(false)}
               >
@@ -90,7 +82,7 @@ const Sidebar = () => {
       {/* Overlay on Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          className="fixed inset-0  bg-opacity-10 backdrop-blur-xl z-30 md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

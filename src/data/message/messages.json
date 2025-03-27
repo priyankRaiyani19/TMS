@@ -1,0 +1,161 @@
+{
+    "messages": {
+        "Angel Prison": [
+            {
+                "text": "Hi there! I need some help with the project",
+                "sender": "me",
+                "time": "Today 10:30",
+                "read": true
+            },
+            {
+                "text": "Thank you very much. I'm glad you reached out for help",
+                "sender": "them",
+                "time": "Today 10:31"
+            }
+        ],
+        "Jakob Saris": [
+            {
+                "text": "Hey Jakob, how's the frontend coming along?",
+                "sender": "me",
+                "time": "Today 09:45",
+                "read": true
+            },
+            {
+                "text": "It's going well! I've completed most of the UI components",
+                "sender": "them",
+                "time": "Today 09:46"
+            },
+            {
+                "text": "Sure! let me tell you about what I've done so far",
+                "sender": "me",
+                "time": "Today 09:47",
+                "read": true
+            }
+        ],
+        "Emery Korsgard": [
+            {
+                "text": "Have you reviewed the latest design changes?",
+                "sender": "them",
+                "time": "Today 11:20"
+            },
+            {
+                "text": "Yes, they look great! Very clean and modern",
+                "sender": "me",
+                "time": "Today 11:21",
+                "read": true
+            },
+            {
+                "text": "There's. You are very helpful with the feedback",
+                "sender": "them",
+                "time": "Today 11:22"
+            }
+        ],
+        "Jeremy Zucker": [
+            {
+                "text": "Can you help me with the React hooks?",
+                "sender": "them",
+                "time": "Today 08:15"
+            },
+            {
+                "text": "Sure! let me teach you about useState and useEffect",
+                "sender": "me",
+                "time": "Today 08:16",
+                "read": true
+            }
+        ],
+        "Nadia Lauren": [
+            {
+                "text": "Is there anything I can help? Just let me know",
+                "sender": "them",
+                "time": "Today 13:40"
+            },
+            {
+                "text": "Thanks! I'll let you know if I need anything",
+                "sender": "me",
+                "time": "Today 13:41",
+                "read": true
+            }
+        ],
+        "Jason Statham": [
+            {
+                "text": "How do I implement authentication?",
+                "sender": "them",
+                "time": "Today 14:20"
+            },
+            {
+                "text": "Sure! let me share about JWT and session management",
+                "sender": "me",
+                "time": "Today 14:21",
+                "read": true
+            }
+        ],
+        "Angel Kimberly": [
+            {
+                "text": "What's the best way to handle state management?",
+                "sender": "them",
+                "time": "Today 15:10"
+            },
+            {
+                "text": "We could use Redux or Context API",
+                "sender": "me",
+                "time": "Today 15:11",
+                "read": true
+            },
+            {
+                "text": "Okay, I know very well about it now",
+                "sender": "them",
+                "time": "Today 15:12"
+            }
+        ],
+        "Jason Momoa": [
+            {
+                "text": "Need help with responsive design",
+                "sender": "them",
+                "time": "Today 16:05"
+            },
+            {
+                "text": "Sure! let me tell you about media queries",
+                "sender": "me",
+                "time": "Today 16:06",
+                "read": true
+            }
+        ],
+        "Angelie Crison": [
+            {
+                "text": "Morning Angelie, I have question about My Task",
+                "sender": "me",
+                "time": "Today 11:52",
+                "read": true
+            },
+            {
+                "text": "Yes sure. Any problem with your assignment?",
+                "sender": "them",
+                "time": "Today 11:53"
+            },
+            {
+                "text": "How to make a responsive display from the dashboard?",
+                "sender": "me",
+                "time": "Today 11:52",
+                "isImage": true,
+                "image": "/dashboard-screenshot.jpg",
+                "read": true
+            },
+            {
+                "text": "Is there a plugin to do this task?",
+                "sender": "me",
+                "time": "Today 11:52",
+                "read": true
+            },
+            {
+                "text": "No plugins. You just have to make it smaller according to the size of the phone.",
+                "sender": "them",
+                "time": "Today 11:53"
+            },
+            {
+                "text": "Thank you very much. I'm glad you asked about the assignment",
+                "sender": "them",
+                "time": "Today 11:53"
+            }
+        ]
+    }
+} 

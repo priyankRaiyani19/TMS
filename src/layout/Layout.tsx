@@ -1,23 +1,16 @@
-import Sidebar from '../components/common/Sidebar.tsx';
-
-import { Outlet } from 'react-router-dom';
-
+import Sidebar from "../components/common/Sidebar.tsx";
+import { Outlet } from "react-router-dom";
+// import Navbar from "../components/common/Navbar.tsx";
 
 const Layout = () => {
     return (
         <div className={`flex`}>
+            <Sidebar />
 
-            <Sidebar/>
-          <div className={`flex flex-col w-full`}>
-
-         <div className={`bg-gray-600`}>
-           <Outlet/>
-         </div>
-          </div>
-
-
-
-
+            {/*<Navbar/>*/}
+            <div className={`grow w-[74.25rem] `}>
+                <Outlet />
+            </div>
         </div>
     );
 };
