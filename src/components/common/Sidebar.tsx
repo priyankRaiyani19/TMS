@@ -1,27 +1,36 @@
 import { sidebar, SidebarItem } from "../../data/sidebar.tsx";
 import { NavLink } from "react-router-dom";
 import { CloseCircle} from 'iconsax-react';
-import { useSidebar } from '../../hooks/UseSidebar.tsx'; // New import
+import { useSidebar } from '../../hooks/UseSidebar.tsx';
 import BookSquare from "../../assets/sidebar/BookSquare.tsx"
 
 const Sidebar = () => {
-  const { isOpen, setIsOpen } = useSidebar(); // Use the context hook
+  const { isOpen, setIsOpen } = useSidebar();
 
   return (
-    <div className={`min-h-[64rem] lg:min-w-[15.75rem]`}>
+    <>
+      {/* Overlay on Mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-[55] md:hidden"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+
       {/* Sidebar Container */}
       <div
-        className={`fixed md:relative top-0 left-0 min-h-[64rem] h-full w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
-        transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed md:relative top-0 left-0 min-h-screen h-full w-[15.75rem] bg-white px-[1.5rem] py-[2rem] flex flex-col justify-between
+        transition-transform duration-300 ease-in-out z-[65] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
         {/* Close Button for Mobile */}
         <button
-          className="md:hidden absolute top-4 right-4 text-2xl"
+          className="md:hidden absolute top-4 right-4 text-2xl p-2 hover:bg-gray-100 rounded-lg"
           onClick={() => setIsOpen(false)}
+          aria-label="Close menu"
         >
-          <CloseCircle size="32" color="#000"/>
+          <CloseCircle size="24" color="#000"/>
         </button>
 
         {/* Logo */}
@@ -39,7 +48,7 @@ const Sidebar = () => {
                 key={item.id}
                 className={({ isActive }) =>
                   `py-[0.55rem] max-w-[11.75rem] px-[1rem] flex gap-[1.5rem] rounded-[0.625rem] ${
-                    isActive ? "bg-gray-300 text-black" : "hover:bg-secondary-100 text-secondary-300  "
+                    isActive ? "bg-gray-300 text-black" : "hover:bg-secondary-100 text-secondary-300"
                   } font-semibold`
                 }
                 onClick={() => setIsOpen(false)}
@@ -75,15 +84,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-
-      {/* Overlay on Mobile */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-opacity-10 backdrop-blur-xl z-30 md:hidden"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
-    </div>
+    </>
   );
 };
 
