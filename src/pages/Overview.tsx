@@ -19,14 +19,14 @@ const Overview = () => {
     const { isOpen, toggleSidebar } = useSidebar();
 
     return (
-        <div className="flex flex-col gap-[2rem]">
+        <div className="flex flex-col min-h-screen">
             {/* Mobile Navbar */}
             <div className="md:hidden">
                 <Navbar name="Dashboard" isActive={false} />
             </div>
             
-            <div className="flex flex-col lg:flex-row grow h-full bg-white/50 overflow-auto">
-                <div className="grow p-[2rem] w-full flex-col gap-[2rem]">
+            <div className="flex-1 flex flex-col lg:flex-row bg-white/50">
+                <div className="flex-1 p-4 md:p-[2rem] w-full flex flex-col gap-[2rem] overflow-y-auto">
                     {/* Desktop Header */}
                     <div className="hidden md:flex justify-between items-center">
                         <div>
@@ -45,9 +45,9 @@ const Overview = () => {
                         </div>
                     </div>
 
-                    <div className={`flex flex-col gap-[2rem]`}>
+                    <div className="flex flex-col gap-[2rem]">
                         {/* Chart and activity */}
-                        <div className="flex flex-col lg:flex-row gap-[4rem] py-[2rem]">
+                        <div className="flex flex-col lg:flex-row gap-[2rem] lg:gap-[4rem] py-[1rem] lg:py-[2rem]">
                             <RunningTask/>
                             <ChartTooltip/>
                         </div>
@@ -64,7 +64,7 @@ const Overview = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-[2rem] w-[27.25rem] bg-[#F5F5F7] p-[2rem]">
+                <div className="flex flex-col gap-[2rem] w-full lg:w-[27.25rem] bg-[#F5F5F7] p-4 md:p-[2rem]">
                     <Calendar/>
                     <TodayTask/>
                 </div>
