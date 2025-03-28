@@ -4,12 +4,12 @@ import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import CTAButton from "../components/common/CTAButton.tsx";
-import DynamicDropdown from "../components/core/Settings/DynamicDropdown.tsx";
+import CTAButton from "../../components/common/CTAButton.tsx";
+import DynamicDropdown from "./components/DynamicDropdown.tsx";
 import Switch from "react-switch";
-import timeFormatOptions from "../data/settings/timeFormatOptions.ts";
-import languageOptions from "../data/settings/languages.ts";
-import Navbar from "../components/common/Navbar.tsx";
+import timeFormatOptions from "../../data/settings/timeFormatOptions.ts";
+import languageOptions from "../../data/settings/languages.ts";
+import Navbar from "../../components/common/Navbar.tsx";
 
 // Validation Schema
 const generalSchema = z.object({
@@ -67,7 +67,7 @@ const SettingsPage = () => {
     return (
         <div>
             <Navbar name={"Settings"} isActive={false} />
-            <div className={`p-[2rem]`}>
+            <div className={`md:p-[2rem]`}>
                 <div className="w-full p-[2rem]  mx-auto bg-white ">
                     {/* Tabs */}
                     <div className={`w-full border-b-[1px] border-b-secondary-300`}>

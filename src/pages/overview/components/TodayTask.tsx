@@ -1,10 +1,8 @@
 import {More} from "iconsax-react";
-import TaskCard from "../../common/TaskCard.tsx";
 import todayTask from "../../../assets/overview/task-Today.png";
 import {TaskDetails} from "../../../data/overview/task-details.tsx";
-import CTAButton from "../../common/CTAButton.tsx";
+import CTAButton from "../../../components/common/CTAButton.tsx";
 import {useNavigate} from "react-router";
-import * as React from "react";
 import {Clock} from "lucide-react";
 
 
@@ -77,7 +75,7 @@ const TodayTask = () => {
                     <div className={`h-full flex flex-col justify-between  py-8 `}>
                         <div className="flex flex-col gap-[1rem]">
                             {TaskDetails.map((item, id: number) => (
-                                <div className="flex items-center gap-[0.75rem] " key={id}>
+                                <div  className="flex items-center gap-[0.75rem] " key={id}>
                                     <div
                                         className="bg-[#F5F5F7] text-black font-bold flex items-center justify-center h-9 w-9 text-[0.875rem] rounded-lg">{id + 1}</div>
                                     <div className="text-sm font-medium">{item.task}</div>

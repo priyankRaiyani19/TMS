@@ -3,16 +3,17 @@ import { Outlet } from "react-router-dom";
 // import Navbar from "../components/common/Navbar.tsx";
 
 const Layout = () => {
-    return (
-        <div className={`flex`}>
-            <Sidebar />
+  return (
+    <div className={`flex`}>
 
-            {/*<Navbar/>*/}
-            <div className={`grow w-[74.25rem] `}>
-                <Outlet />
-            </div>
-        </div>
-    );
+      <Sidebar />
+
+      {/*<Navbar/>*/}
+      <div className={`grow w-[74.25rem] `}>
+        <Outlet />
+      </div>
+    </div>
+  );
 };
 
 export default Layout;

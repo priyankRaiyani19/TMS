@@ -1,94 +1,83 @@
-// import {useLocation} from "react-router-dom";
-import {Notification, HambergerMenu, SearchNormal1, Element, Sort, Setting4} from "iconsax-react";
-import useToggle from "../../hooks/UseToggel.tsx";
-import {useState} from "react";
+import { Notification, HambergerMenu, SearchNormal1, Element, Sort, Setting4 } from 'iconsax-react';
+import { useSidebar } from '../../hooks/UseSidebar';
+import { useState } from 'react';
 
-const Navbar = ({name, isActive = false}: { name: string, isActive: boolean }) => {
-    // const location = useLocation();
-    // console.log("this is path ", location.pathname)
-    const {isOpen, setIsOpen} = useToggle();
-    const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
+const Navbar = ({ name, isActive = false }: { name: string, isActive: boolean }) => {
+  const { toggleSidebar } = useSidebar();
+  const [isDropDownOpen, setIsDropDownOpen] = useState<boolean>(false);
 
-    const handleSidebar = () => {
-        setIsOpen(!isOpen);
-        console.log(isOpen)
-    }
-    const handleDropDown = () => {
-        setIsDropDownOpen(!isDropDownOpen);
-        console.log(isDropDownOpen);
-    }
+  const handleDropDown = () => {
+    setIsDropDownOpen(!isDropDownOpen);
+  };
 
-    return (
-        <div className="p-4 sticky flex flex-col grow justify-between items-center bg-white shadow-md  gap-[2rem]">
-            <div className={`flex w-full justify-between items-center px-[2rem] `}>
-                <div className={`flex lg:flex-row flex-col gap-[2rem]`}>
-                    <button className="lg:hidden max-w-[2rem] bg-black" onClick={handleSidebar}>
-                        <HambergerMenu size={32} className="text-secondary-300"/>
-                    </button>
+  return (
+    <div className="bg-white ">
+      <div className="p-[1.5rem] flex flex-col grow justify-between items-center gap-[2rem]">
+        <div className={`flex  w-full justify-between items-start`}>
+          <div className={`flex gap-[2rem]  flex-col`}>
+              <div className={`h-[2.75rem] w-[2.75rem] border-2 flex items-center justify-center rounded-full border-[#F5F5F7]  md:hidden`}>
+                  <HambergerMenu size={24} color="#8E92BC" onClick={toggleSidebar} />
+              </div>
+              <div>
+              <h1 className="text-2xl font-semibold">{name}</h1>
+            </div>
+          </div>
 
-                    <div className=" lg:blockgap-5">
-                        <h1 className="text-2xl font-medium">{name} </h1>
-                    </div>
-                </div>
-                <div className="flex items-center gap-[1rem]">
-                    <Notification size={32} color="#8E92BC" className="p-2 border rounded-full"/>
-                    <img
-                        src="https://randomuser.me/api/portraits/women/44.jpg"
-                        alt="User"
-                        className="w-10 h-10 rounded-full"
-                    />
-                </div>
+          <div className="flex items-center gap-4">
+            <div className="p-[0.775rem] border-2 border-secondary-100 rounded-full">
+              <Notification size={24} color="#8E92BC" />
+            </div>
+            <div
+              className="w-[3.25rem] h-[3.25rem] bg-[#8E92BC] rounded-full text-white flex items-center justify-center font-bold">
+              P
+            </div>
+          </div>
+        </div>
+
+        <div
+          className={`flex w-full gap-[1rem] md:gap-0 md:justify-between items-center ${isActive ? 'block' : 'hidden'}`}>
+          <div
+            className="flex items-center border-2 border-[#E3E1E1] rounded-lg min-h-[35px] px-3 relative max-w-[300px]">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent text-gray-700 ml-3 focus:outline-none w-full placeholder-gray-400"
+              aria-placeholder="Search input"
+            />
+            <SearchNormal1 size="24" color="#8E92BC" />
+          </div>
+
+          <div className="relative">
+            <div className="hidden md:flex gap-[2rem]">
+              <div className="text-black font-medium flex gap-2 hover:cursor-pointer">
+                <Element size="24" color="#8e92bc" /> Categories
+              </div>
+              <div className="text-black font-medium flex gap-2 hover:cursor-pointer">
+                <Sort size="24" color="#8e92bc" /> Sort By : Popular
+              </div>
             </div>
 
             <div
-                className={`flex w-full gap-[1rem] md:gap-0 md:justify-between items-center  px-[1rem] ${isActive ? "block" : "hidden"} `}>
-
-                <div
-                    className="flex items-center border-2 border-[#E3E1E1] rounded-lg min-h-[35px] px-3 relative max-w-[300px]">
-
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="bg-transparent text-gray-700 ml-3 focus:outline-none w-full placeholder-gray-400"
-                        aria-placeholder="Search input"
-                    />
-                    <SearchNormal1 size="24" color="#8E92BC"/>
-                </div>
-
-                <div className="relative">
-                    <div className="hidden md:flex gap-[2rem]">
-                        <div className="text-black font-medium flex gap-2 hover:cursor-pointer">
-                            <Element size="24" color="#8e92bc"/> Cateories
-                        </div>
-                        <div className="text-black font-medium flex gap-2 hover:cursor-pointer">
-                            <Sort size="24" color="#8e92bc"/> Sort By : Popular
-                        </div>
-                    </div>
-
-                    <div
-                        className="md:hidden flex items-center gap-2 cursor-pointer border-2 border-[#E3E1E1] rounded-[0.8rem] p-2"
-                        onClick={handleDropDown}>
-                        <Setting4 size="24" color="#8e92bc"/>
-
-                    </div>
-
-                    {isDropDownOpen && (
-                        <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-lg p-2 z-10 ">
-                            <div className="text-black font-medium flex gap-2 py-2 border-b cursor-pointer">
-                                <Element size="24" color="#8e92bc"/> Categories
-                            </div>
-                            <div className="text-black font-medium flex gap-2 py-2 cursor-pointer">
-                                <Sort size="24" color="#8e92bc"/> Sort By : Popular
-                            </div>
-                        </div>
-                    )}
-                </div>
-
+              className="md:hidden flex items-center gap-2 cursor-pointer border-2 border-[#E3E1E1] rounded-[0.8rem] p-2"
+              onClick={handleDropDown}>
+              <Setting4 size="24" color="#8e92bc" />
             </div>
 
-
+            {isDropDownOpen && (
+              <div className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-lg p-2 z-[70]">
+                <div className="text-black font-medium flex gap-2 py-2 border-b cursor-pointer">
+                  <Element size="24" color="#8e92bc" /> Categories
+                </div>
+                <div className="text-black font-medium flex gap-2 py-2 cursor-pointer">
+                  <Sort size="24" color="#8e92bc" /> Sort By : Popular
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

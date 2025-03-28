@@ -9,10 +9,10 @@ import {
     ArrowLeft,
 
 } from "iconsax-react";
-import Navbar from "../components/common/Navbar.tsx";
-import usersData from "../data/message/users.json";
-import messagesData from "../data/message/messages.json";
-import DoubleTick from "../components/message/DoubleTick.tsx";
+import Navbar from "../../../components/common/Navbar.tsx";
+import usersData from "../../../data/message/users.json";
+import messagesData from "../../../data/message/messages.json";
+import DoubleTick from "./DoubleTick.tsx";
 
 interface User {
     name: string;
@@ -147,12 +147,12 @@ export default function ChatApp() {
             <div className="flex flex-1 bg-gray-50 relative">
                 {/*sidebar*/}
                 <div
-                    className={`w-full md:w-1/4 bg-white absolute md:relative h-full z-10 transition-transform duration-300 ease-in-out ${
+                    className={`w-full md:w-1/4 bg-white absolute md:relative h-full z-10transition-transform duration-300 ease-in-out ${
                         showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-                    }`}
+                    }   `}
                 >
                     {/* Search bar */}
-                    <div className="p-4 ">
+                    <div className="p-4  ">
                         <div className="flex items-center bg-gray-50 rounded-lg p-[0.85rem]">
                             <input
                                 type="text"
@@ -164,7 +164,7 @@ export default function ChatApp() {
                     </div>
 
                     {/* User list */}
-                    <div className="overflow-y-auto h-[calc(100vh-10px)] md:h-[calc(64rem-140px)]">
+                    <div className="overflow-y-auto h-[calc(100vh-10px)] md:h-[calc(64rem-140px)] no-scrollbar">
                         {usersData.users.map((user, index) => (
                             <div
                                 key={index}
@@ -228,7 +228,7 @@ export default function ChatApp() {
                 {/* Main chat Container */}
                 <div className="flex-1 flex flex-col w-full h-100vh md:h-[calc(64rem-50px)]">
                     {/* Chat header*/}
-                    <div className="flex items-center justify-between p-4 bg-white">
+                    <div className="flex items-center justify-between  p-4  md:px-[3rem] bg-white">
                         <div className="flex items-center">
                             <button
                                 onClick={() => setShowSidebar(true)}
@@ -252,16 +252,16 @@ export default function ChatApp() {
                                 <p className="text-xs text-green-500">• Online</p>
                             </div>
                         </div>
-                        <div className="flex space-x-4">
+                        <div className="flex w-[8rem] h-[3.25rem] gap-[1.5rem]">
                             <button
-                                className={`h-[3rem] w-[3rem] flex justify-center items-center rounded-full border-2 border-secondary-100`}
+                                className={`h-[3.25rem] w-[3.25rem] flex justify-center items-center rounded-full border-2 border-secondary-100/50`}
                             >
-                                <Video size="20" color="#54577a" />
+                                <Video size="24" color="#54577a" />
                             </button>
                             <button
-                                className={`h-[3rem] w-[3rem] flex justify-center items-center rounded-full border-2 border-secondary-100`}
+                                className={`h-[3.25rem] w-[3.25rem] flex justify-center items-center rounded-full border-2 border-secondary-100/50`}
                             >
-                                <Call size="20" color="#54577a" />
+                                <Call size="24" color="#54577a" />
                             </button>
                         </div>
                     </div>
@@ -389,19 +389,21 @@ export default function ChatApp() {
                                     accept="image/*"
                                     onChange={handleFileUpload}
                                 />
-                                <button
+                              <div className={`flex flex-row`}>
+                                  <button
                                     className="text-white p-2 rounded-[0.625rem] ml-2"
                                     onClick={() => fileInputRef.current?.click()}
-                                >
-                                    <AttachCircle size="18" color="#54577a" variant="Outline" />
-                                </button>
+                                  >
+                                      <AttachCircle size="18" color="#54577a" variant="Outline" />
+                                  </button>
 
-                                <button
+                                  <button
                                     className="bg-primary-500 text-white p-2 rounded-[0.625rem] ml-2"
                                     onClick={sendMessage}
-                                >
-                                    <Send2 size="18" variant="Bold" color="#fff" />
-                                </button>
+                                  >
+                                      <Send2 size="18" variant="Bold" color="#fff" />
+                                  </button>
+                              </div>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
-import TaskSlider from "../components/common/TaskSlider.tsx";
-import { LimitedTasks } from "../data/timelimit.ts";
-import { UpcomingTask } from "../data/overview/upcoming-tasks.tsx";
-import Navbar from "../components/common/Navbar.tsx";
+import TaskSlider from "../../components/common/TaskSlider.tsx";
+import { LimitedTasks } from "../../data/timelimit.ts";
+import { UpcomingTask } from "../../data/overview/upcoming-tasks.tsx";
+import Navbar from "../../components/common/Navbar.tsx";
 
 const Task = () => {
     return (

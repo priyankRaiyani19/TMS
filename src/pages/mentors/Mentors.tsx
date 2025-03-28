@@ -1,7 +1,7 @@
-import MentorSlider from "../components/common/MentorSlider.tsx";
-import { Mentor, monthlyMentors } from "../data/overview/monthly-mentors.tsx";
-import Navbar from "../components/common/Navbar.tsx";
-import MentorsCard from "../components/common/MentorsCard.tsx";
+import MentorSlider from "../../components/common/MentorSlider.tsx";
+import { Mentor, monthlyMentors } from "../../data/overview/monthly-mentors.tsx";
+import Navbar from "../../components/common/Navbar.tsx";
+import MentorsCard from "../../components/common/MentorsCard.tsx";
 
 const Mentors = () => {
     return (

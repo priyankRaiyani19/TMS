@@ -87,7 +87,7 @@ const TaskSlider = ({ title, tasks = [], cardWidth = 250, maxCards }: TaskSlider
                 <AnimatePresence initial={false} custom={direction} mode="wait">
                     <motion.div
                         key={currentIndex}
-                        className="flex gap-[2rem]"
+                        className="flex items-center  gap-[2rem]"
                         custom={direction}
                         initial={{ x: direction > 0 ? 100 : -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1, transition: { duration: 0.5 } }}
