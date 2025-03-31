@@ -17,12 +17,12 @@ const Sidebar = () => {
         ></div>
       )}
 
-      <div className="min-h-[64rem] h-full lg:min-w-[15.75rem]">
+      <div className="max-h-[100vh] overflow-y-auto relative overflow-x-hidden lg:min-w-[15.75rem] no-scrollbar">
         {/* Sidebar Container */}
         <div
           className={clsx(
-            `fixed md:relative top-0 left-0 min-h-[64rem] h-full w-[15.75rem] bg-white px-6 py-8 flex flex-col justify-between 
-          transition-transform duration-300 ease-in-out z-40`,
+            `fixed md:relative top-0 left-0 min-h-[64rem] w-[15.75rem] bg-white px-6 py-8 flex flex-col justify-between
+          transition-transform duration-300 ease-in-out z-40 `,
             {
               '-translate-x-full md:translate-x-0': !isOpen,
               'translate-x-0': isOpen

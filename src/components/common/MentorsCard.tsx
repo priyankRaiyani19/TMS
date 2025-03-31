@@ -60,7 +60,7 @@ const MentorsCard: React.FC<MentorProps> = ({
                     </button>
                 </div>
 
-                <div className={`${isActive ? "block" : "hidden"} text-[0.875rem] text-secondary-300 py-[1rem]`}>
+                <div className={`${isActive ? "block" : "hidden"} line-clamp-2 max-h-[3.75rem] max-w-[19.125rem] text-[0.875rem] text-secondary-300 py-[1rem]`}>
                     Hi, I'm {name}. I am a doctoral student at Harvard University majoring in Web . . .
                 </div>
 

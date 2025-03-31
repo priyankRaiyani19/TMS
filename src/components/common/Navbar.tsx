@@ -11,14 +11,15 @@ const Navbar = ({ name, isActive = false }: { name: string, isActive: boolean })
   };
 
   return (
-    <div className="bg-white ">
+    <div className="bg-white  ">
       <div className="p-[1.5rem] flex flex-col grow justify-between items-center gap-[2rem]">
-        <div className={`flex  w-full justify-between items-start`}>
+        <div className={`flex  w-full justify-between items-start md:items-center`}>
           <div className={`flex gap-[2rem]  flex-col`}>
-              <div className={`h-[2.75rem] w-[2.75rem] border-2 flex items-center justify-center rounded-full border-[#F5F5F7]  md:hidden`}>
-                  <HambergerMenu size={24} color="#8E92BC" onClick={toggleSidebar} />
-              </div>
-              <div>
+            <div
+              className={`h-[2.75rem] w-[2.75rem] border-2 flex items-center justify-center rounded-full border-[#F5F5F7]  md:hidden`}>
+              <HambergerMenu size={24} color="#8E92BC" onClick={toggleSidebar} />
+            </div>
+            <div>
               <h1 className="text-2xl font-semibold">{name}</h1>
             </div>
           </div>

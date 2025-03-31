@@ -15,10 +15,10 @@ export default function TaskDetail() {
   });
   console.log(files);
   return (
-    <div>
+    <div className={`max-h-[100vh] overflow-y-auto`}>
       <Navbar name={'Detail Task'} isActive={true} />
 
-      <div className=" p-[1rem]  lg:p-[2rem] flex flex-col lg:flex-row gap-8">
+      <div className=" p-[1rem]  lg:p-[2rem] relative flex flex-col lg:flex-row gap-8 ">
         <div className="flex flex-col w-full bg-white rounded-lg">
           <img src={Task} alt="Not Found" />
           <div className="p-8 flex flex-col gap-8">
@@ -62,7 +62,7 @@ export default function TaskDetail() {
           </div>
         </div>
         <div
-          className="min-w-[23.25rem] h-full min-h-[50.75rem] p-6 bg-white rounded-lg flex flex-col justify-between">
+          className="min-w-[23.25rem] h-full p-6 bg-white rounded-lg flex flex-col justify-between">
           <div className="flex flex-col gap-6">
             <p className="font-bold text-sm">Assigned Assignments</p>
             <div className="flex flex-col gap-6">

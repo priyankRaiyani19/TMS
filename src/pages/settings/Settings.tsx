@@ -65,9 +65,9 @@ const SettingsPage = () => {
         console.log("Notification Settings:", data);
 
     return (
-        <div>
+        <div className={`max-h-[100vh] overflow-y-auto `}>
             <Navbar name={"Settings"} isActive={false} />
-            <div className={`md:p-[2rem]`}>
+            <div className={`md:p-[2rem]  max-h-[90vh]`}>
                 <div className="w-full p-[2rem]  mx-auto bg-white ">
                     {/* Tabs */}
                     <div className={`w-full border-b-[1px] border-b-secondary-300`}>
@@ -99,7 +99,7 @@ const SettingsPage = () => {
                     {activeTab === "general" && (
                         <form
                             onSubmit={handleGeneralSubmit(onGeneralSubmit)}
-                            className="space-y-4 mt-4 h-full flex flex-col justify-a"
+                            className="space-y-4 mt-4  flex flex-col "
                         >
                             <DynamicDropdown title={"Language"} options={languageOptions} />
                             <DynamicDropdown

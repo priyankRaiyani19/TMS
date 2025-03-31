@@ -4,12 +4,12 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className={`flex`}>
+    <div className={`flex `}>
 
       <Sidebar />
 
       {/*<Navbar/>*/}
-      <div className={`grow w-[74.25rem] `}>
+      <div className={`grow w-[74.25rem]`}>
         <Outlet />
       </div>
     </div>

@@ -16,7 +16,7 @@ const Overview = () => {
     <div className="flex flex-col ">
 
 
-      <div className="flex-1 flex flex-col lg:flex-row bg-white/50">
+      <div className="flex-1 flex flex-col lg:flex-row bg-white/50 max-h-[100vh] overflow-y-auto ">
         <div className="flex-1 p-4 md:p-[2rem] w-full flex flex-col gap-[2rem] ">
           {/* Desktop Header */}
 

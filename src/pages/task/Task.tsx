@@ -5,7 +5,7 @@ import Navbar from "../../components/common/Navbar.tsx";
 
 const Task = () => {
     return (
-        <div className={`grow`}>
+        <div className={`grow max-h-[100vh] overflow-y-auto `}>
             <Navbar name={"Explore tasks"} isActive={true} />
             <div className={`w-full grow p-[2rem]  `}>
                 <div className={`flex flex-col gap-[2rem]`}>

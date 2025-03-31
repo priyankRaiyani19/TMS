@@ -5,7 +5,7 @@ import MentorsCard from "../../components/common/MentorsCard.tsx";
 
 const Mentors = () => {
     return (
-        <div className={`flex flex-col gap-[2rem]`}>
+        <div className={`flex flex-col max-h-[100vh] overflow-y-auto gap-[2rem]`}>
             <Navbar name={"Explore Mentors"} isActive={true} />
 
             <div className={`w-full grow  px-[2rem] `}>
