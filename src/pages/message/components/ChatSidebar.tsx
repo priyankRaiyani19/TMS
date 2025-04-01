@@ -34,7 +34,7 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
                                                  }) => {
   return (
     <div
-      className={`w-full md:w-1/4 bg-white absolute md:relative max-h-full z-10 transition-transform duration-300 ease-in-out border-r-2 border-r-secondary-100/40 ${
+      className={`md:min-w-[25rem] w-full md:w-[25rem] bg-white absolute md:relative  z-10 transition-transform duration-300 ease-in-out border-r-2 border-r-secondary-100/40 ${
         showSidebar ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
       }`}
     >
@@ -51,62 +51,71 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
       </div>
 
       {/* User list */}
-      <div className="overflow-y-auto max-h-[75vh] no-scrollbar">
+      <div className="overflow-y-auto md:max-h-[75vh] max-h-screen no-scrollbar flex flex-col gap-[1rem] p-[1.5rem]">
         {users.map((user, index) => (
+
           <div
             key={index}
-            className={`flex items-center p-4 cursor-pointer ${
+            className={`flex items-center justify-between p-4 cursor-pointer rounded-[0.625rem] h-[4.25rem] w-[22rem] ${
               selectedUser.name === user.name
-                ? 'bg-[#FAFAFA]'
-                : 'hover:bg-gray-50'
+                ? 'bg-secondary-100/30'
+                : 'hover:bg-secondary-100'
             }`}
             onClick={() => {
               setSelectedUser(user);
               setShowSidebar(false);
             }}
           >
-            <div className="relative">
-              <img
-                src={user.avatar}
-                alt={user.name}
-                className="w-12 h-12 rounded-full object-cover"
-                onError={(e: SyntheticEvent<HTMLImageElement>) => {
-                  e.currentTarget.src = `https://ui-avatars.com/api/?name=${user.name.replace(
-                    ' ',
-                    '+'
-                  )}&background=random`;
-                }}
-              />
-            </div>
-            <div className="ml-3 flex-1">
-              <div className="flex justify-between">
+            <div className={`flex  items-center  justify-between gap-[0.5rem]`}>
+              <div className="relative">
+                <img
+                  src={user.avatar}
+                  alt={user.name}
+                  className="w-[3rem] h-[3rem] rounded-full object-cover"
+                  onError={(e: SyntheticEvent<HTMLImageElement>) => {
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${user.name.replace(
+                      ' ',
+                      '+'
+                    )}&background=random`;
+                  }}
+                />
+              </div>
+
+              <div>
                 <h3 className="font-semibold text-sm">{user.name}</h3>
-                <div className="flex flex-col items-end">
-                  <span className="text-xs text-gray-500">
+                <div className="flex items-center justify-between">
+                  <p
+                    className={`text-xs ${
+                      user.unread ? 'text-gray-800' : 'text-gray-500'
+                    } truncate flex-1`}
+                  >
+                    {getLastMessagePreview(user.name)}
+                  </p>
+
+                </div>
+              </div>
+
+
+            </div>
+
+              <div className="flex flex-col justify-between items-end gap-[0.5rem]">
+                  <span className="text-xs text-secondary-300 text-[0.75rem]">
                     {user.name === selectedUser.name &&
                     user.time === 'active'
                       ? 'active'
-                      : getLastMessageTime(user.name)}
+                      :user.time}
                   </span>
-                  {!user.isOnline && (
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-1"></div>
-                  )}
+                {!user.isOnline && (
+                  <div className="w-2 h-2 bg-red-500 rounded-full mt-1"></div>
+                )}
+                <div>
+                  {getLastMessagePreview(user.name).startsWith('You:') &&
+                    user.isOnline && (
+                      <DoubleTick isRead={isLastMessageRead(user.name)} />
+                    )}
                 </div>
               </div>
-              <div className="flex items-center justify-between">
-                <p
-                  className={`text-xs ${
-                    user.unread ? 'text-gray-800' : 'text-gray-500'
-                  } truncate flex-1`}
-                >
-                  {getLastMessagePreview(user.name)}
-                </p>
-                {getLastMessagePreview(user.name).startsWith('You:') &&
-                  user.isOnline && (
-                    <DoubleTick isRead={isLastMessageRead(user.name)} />
-                  )}
-              </div>
-            </div>
+
           </div>
         ))}
       </div>

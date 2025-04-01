@@ -4,7 +4,7 @@ import Layout from "../layout/Layout.tsx";
 import Overview from "../pages/overview/Overview.tsx";
 import Task from "../pages/task/Task.tsx";
 import Mentors from "../pages/mentors/Mentors.tsx";
-import Message from "../pages/message/components/Message.tsx";
+import Message from "../pages/message/Message.tsx";
 import Settings from "../pages/settings/Settings.tsx";
 import TaskDetail from "../pages/TaskDetail.tsx";
 

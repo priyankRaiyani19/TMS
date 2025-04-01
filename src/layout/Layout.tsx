@@ -9,7 +9,7 @@ const Layout = () => {
       <Sidebar />
 
       {/*<Navbar/>*/}
-      <div className={`grow w-[74.25rem]`}>
+      <div className={`grow w-[74.25rem] `}>
         <Outlet />
       </div>
     </div>

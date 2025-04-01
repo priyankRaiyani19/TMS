@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import Navbar from '../../../components/common/Navbar.tsx';
-import usersData from '../../../data/message/users.json';
-import messagesData from '../../../data/message/messages.json';
-import ChatSidebar from './ChatSidebar';
-import ChatContainer from './ChatContainer.tsx';
+import Navbar from '../../components/common/Navbar.tsx';
+import usersData from '../../data/message/users.json';
+import messagesData from '../../data/message/messages.json';
+import ChatSidebar from './components/ChatSidebar.tsx';
+import ChatContainer from './components/ChatContainer.tsx';
 
 interface User {
   name: string;
@@ -57,7 +57,6 @@ export default function ChatApp() {
     return lastMessage.time.replace('Today ', '');
   };
 
-  // Fixed to ensure it always returns a boolean
   const isLastMessageRead = (userName: string): boolean => {
     const userMessages = messages[userName] || [];
     if (userMessages.length === 0) return false;
@@ -109,42 +108,43 @@ export default function ChatApp() {
   }, [messages[selectedUser.name]]);
 
   return (
-    <div className="flex flex-col max-h-[100vh]">
+    <div className="flex flex-col h-screen">
       {/* Navbar */}
       <div
         className={`navbar-container border-l-2 border-secondary-100/40 ${!showSidebar ? 'md:block hidden' : ''}`}
-      >
-        <Navbar name={'Message'} isActive={false} />
+      > <Navbar name={'Message'} isActive={false} />
       </div>
 
-      <div className="flex flex-1 max-h-full bg-secondary-100/5 border-t-2 border-l-2 border-secondary-100/50">
-        {/* Sidebar Component */}
-        <ChatSidebar
-          users={usersData.users}
-          selectedUser={selectedUser}
-          setSelectedUser={setSelectedUser}
-          setShowSidebar={setShowSidebar}
-          showSidebar={showSidebar}
-          getLastMessagePreview={getLastMessagePreview}
-          getLastMessageTime={getLastMessageTime}
-          isLastMessageRead={isLastMessageRead}
-        />
+      <div className="flex flex-1 bg-secondary-100/5 border-t-2 border-l-2 border-secondary-100/50  ">
+
+          <ChatSidebar
+            users={usersData.users}
+            selectedUser={selectedUser}
+            setSelectedUser={setSelectedUser}
+            setShowSidebar={setShowSidebar}
+            showSidebar={showSidebar}
+            getLastMessagePreview={getLastMessagePreview}
+            getLastMessageTime={getLastMessageTime}
+            isLastMessageRead={isLastMessageRead}
+          />
+
 
         {/* Main Chat Container Component */}
-        <ChatContainer
-          selectedUser={selectedUser}
-          messages={messages[selectedUser.name] || []}
-          input={input}
-          setInput={setInput}
-          imagePreview={imagePreview}
-          setImagePreview={setImagePreview}
-          imageFile={imageFile}
-          setImageFile={setImageFile}
-          sendMessage={sendMessage}
-          setShowSidebar={setShowSidebar}
-          fileInputRef={fileInputRef}
-          chatRef={chatRef}
-        />
+          <ChatContainer
+            selectedUser={selectedUser}
+            messages={messages[selectedUser.name] || []}
+            input={input}
+            setInput={setInput}
+            imagePreview={imagePreview}
+            setImagePreview={setImagePreview}
+            imageFile={imageFile}
+            setImageFile={setImageFile}
+            sendMessage={sendMessage}
+            setShowSidebar={setShowSidebar}
+            fileInputRef={fileInputRef}
+            chatRef={chatRef}
+          />
+
       </div>
     </div>
   );
