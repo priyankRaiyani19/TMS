@@ -70,15 +70,15 @@ const TodayTask = () => {
                 <div className={`h-full`}>
                     <div className={`h-[1.25rem] flex  justify-between`}>
                         <h2 className="text-lg font-bold">Detail Task</h2>
-                        <p className={`text-secondary-400`}>UI / UX Designer</p>
+                        <p className={`text-secondary-400 text-[0.75rem]`}>UI / UX Designer</p>
                     </div>
                     <div className={`h-full flex flex-col justify-between  py-8 `}>
                         <div className="flex flex-col gap-[1rem]">
                             {TaskDetails.map((item, id: number) => (
-                                <div  className="flex items-center gap-[0.75rem] " key={id}>
+                                <div  className="flex items-center gap-[0.75rem] text-[0.875rem] " key={id}>
                                     <div
-                                        className="bg-[#F5F5F7] text-black font-bold flex items-center justify-center h-9 w-9 text-[0.875rem] rounded-lg">{id + 1}</div>
-                                    <div className="text-sm font-medium">{item.task}</div>
+                                        className="bg-[#F5F5F7] text-black font-bold flex items-center justify-center h-9 w-9 rounded-lg">{id + 1}</div>
+                                    <div className=" font-medium">{item.task}</div>
                                 </div>
                             ))}
                         </div>

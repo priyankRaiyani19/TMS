@@ -53,7 +53,7 @@ const RunningTask = () => {
                 </div>
 
                 {/* Total Task Count (SVG + Text in Same Div) */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col ">
                     <p className="text-[1.25rem] font-bold">{totalTasks}</p>
                     <p className="text-gray-400 text-xs sm:text-sm">Task</p>
                 </div>

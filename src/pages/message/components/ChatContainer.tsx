@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import React, { SyntheticEvent } from 'react';
 import { Send2, Call, Video, ArrowLeft, AttachCircle, CloseCircle } from 'iconsax-react';
 
 interface User {

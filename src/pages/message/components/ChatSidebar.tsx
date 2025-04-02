@@ -29,8 +29,7 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
                                                    setShowSidebar,
                                                    showSidebar,
                                                    getLastMessagePreview,
-                                                   getLastMessageTime,
-                                                   isLastMessageRead
+
                                                  }) => {
   return (
     <div
@@ -98,24 +97,19 @@ const ChatSidebar: React.FC<ChatSidebarProps> = ({
 
             </div>
 
-              <div className="flex flex-col justify-between items-end gap-[0.5rem]">
+            <div className="flex flex-col justify-between items-end gap-[0.5rem]">
                   <span className="text-xs text-secondary-300 text-[0.75rem]">
                     {user.name === selectedUser.name &&
                     user.time === 'active'
                       ? 'active'
-                      :user.time}
+                      : user.time}
                   </span>
-                {!user.isOnline && (
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-1"></div>
-                )}
-                <div>
-                  {getLastMessagePreview(user.name).startsWith('You:') &&
-                    user.isOnline && (
-                      <DoubleTick isRead={isLastMessageRead(user.name)} />
-                    )}
-                </div>
-              </div>
+              {!user.isOnline ? (
+                <div className="w-2 h-2 bg-red-500 rounded-full mt-1"></div>
+              ) : <DoubleTick isRead={false} />
 
+              }
+            </div>
           </div>
         ))}
       </div>

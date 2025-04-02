@@ -47,7 +47,7 @@ function DynamicDropdown<T extends OptionItem>({
     };
 
     return (
-        <div className={`w-full max-w-md p-4 flex flex-col gap-5 rounded `}>
+        <div className={`w-full max-w-[25rem] max-h-[5.438rem] p-4 flex flex-col gap-5 rounded `}>
             <label
                 className="block text-gray-700 text-[0.875rem] font-semibold mb-2"
                 htmlFor={`dropdown-${title.toLowerCase().replace(/\s+/g, "-")}`}
@@ -55,12 +55,12 @@ function DynamicDropdown<T extends OptionItem>({
                 {title}
             </label>
 
-            <div className="relative">
+            <div className="relative ">
                 <select
                     id={`dropdown-${title.toLowerCase().replace(/\s+/g, "-")}`}
                     value={selectedValue}
                     onChange={handleSelectChange}
-                    className="block appearance-none w-full  border border-[#F5F5F7] text-gray-700 py-3 px-4 pr-8 rounded-[0.8rem] leading-tight focus:outline-none focus:bg-white "
+                    className="block appearance-none w-full  max-w-[25rem] h-[3.125rem] border border-[#F5F5F7] text-gray-700 py-3 px-4 pr-8 rounded-[0.8rem] leading-tight focus:outline-none focus:bg-white "
                 >
                     {options.map((option) => (
                         <option key={option.id} value={String(option[valueField])}>

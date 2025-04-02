@@ -20,7 +20,7 @@
             "name": "Emery Korsgard",
             "message": "There's. You are very helpful...",
             "time": "3 m ago",
-            "unread": true,
+            "unread": false,
             "avatar": "/avatars/emery.jpg",
             "isOnline": true
         },
@@ -35,7 +35,7 @@
         {
             "name": "Nadia Lauren",
             "message": "Is there anything I can help? Just...",
-            "time": "active",
+            "time": "5 m ago",
             "unread": true,
             "avatar": "/avatars/nadia.jpg",
             "isOnline": true
@@ -44,7 +44,7 @@
             "name": "Jason Statham",
             "message": "You: Sure! let me share about...",
             "time": "6 m ago",
-            "unread": false,
+            "unread": true,
             "avatar": "/avatars/jason.jpg",
             "isOnline": false
         },
@@ -60,7 +60,7 @@
             "name": "Jason Momoa",
             "message": "You: Sure! let me tell you about...",
             "time": "7 m ago",
-            "unread": false,
+            "unread": true,
             "avatar": "/avatars/jasonm.jpg",
             "isOnline": false
         },

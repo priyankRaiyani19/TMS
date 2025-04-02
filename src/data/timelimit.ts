@@ -1,7 +1,7 @@
 import upcoming from "../assets/overview/upcoming.png"
 
-
 export interface Tasks {
+    id: number;
     title: string;
     role: string;
     time: string;
@@ -11,6 +11,7 @@ export interface Tasks {
 
 export const LimitedTasks: Tasks[] = [
     {
+        id: 1,
         title: "Developing API Endpoints",
         role: "Backend Development",
         time: "1 Hour",
@@ -18,6 +19,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 2,
         title: "Database Schema Design",
         role: "Backend Development",
         time: "2 Hours",
@@ -25,6 +27,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 3,
         title: "UI Component Implementation",
         role: "Frontend Development",
         time: "1.5 Hours",
@@ -32,6 +35,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 4,
         title: "Authentication & Authorization",
         role: "Full Stack Development",
         time: "2.5 Hours",
@@ -39,6 +43,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 5,
         title: "Performance Optimization",
         role: "Backend Development",
         time: "1 Hour",
@@ -46,6 +51,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 6,
         title: "State Management with Redux",
         role: "Frontend Development",
         time: "2 Hours",
@@ -53,6 +59,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 7,
         title: "Unit & Integration Testing",
         role: "Full Stack Development",
         time: "3 Hours",
@@ -60,6 +67,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 8,
         title: "Bug Fixing & Debugging",
         role: "Full Stack Development",
         time: "1.5 Hours",
@@ -67,6 +75,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 9,
         title: "Deploying on Cloud",
         role: "DevOps",
         time: "2 Hours",
@@ -74,6 +83,7 @@ export const LimitedTasks: Tasks[] = [
         imageUrl: upcoming,
     },
     {
+        id: 10,
         title: "Creating Reusable Components",
         role: "Frontend Development",
         time: "1 Hour",

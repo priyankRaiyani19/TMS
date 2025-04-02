@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import TaskCard from "../common/TaskCard.tsx";
 
 interface Task {
-    id: string;
+    id: number;
     time: string;
     percentage: number;
     title: string;

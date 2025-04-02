@@ -20,7 +20,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, role, time, percentage,image
 
     return (
 
-        <div className="flex  flex-col  gap-4 p-[1.5rem] w-[20.5rem] h-[20rem] bg-white rounded-[0.875rem]"
+        <div className="flex  flex-col  gap-4 p-[1.5rem] w-[20.5rem] h-[19.625rem] bg-white rounded-[0.875rem]"
             onClick={handleClick}>
 
             {/* Task Image */}
