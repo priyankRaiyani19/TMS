@@ -4,13 +4,13 @@ import { ArrowLeft2, ArrowRight2 } from 'iconsax-react';
 import MentorsCard from '../common/MentorsCard';
 import { Mentor } from '../../data/overview/monthly-mentors.tsx';
 
-
 type MentorSliderProps = {
   title: string;
   mentors?: Mentor[];
 };
-const MentorSlider : React.FC<MentorSliderProps> = ({ title , mentors = [] }) => {
-  const containerRef = useRef(null);
+
+const MentorSlider: React.FC<MentorSliderProps> = ({ title, mentors = [] }) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [mentorIndex, setMentorIndex] = useState(0);
   const [mentorDirection, setMentorDirection] = useState(1);
   const [mentorsPerPage, setMentorsPerPage] = useState(1);
@@ -18,8 +18,9 @@ const MentorSlider : React.FC<MentorSliderProps> = ({ title , mentors = [] }) =>
   useEffect(() => {
     const calculateMentorsPerPage = () => {
       if (containerRef.current) {
-        const containerWidth = containerRef.current. clientWidth;
-        const sidebarWidth = document.querySelector('.sidebar')?.offsetWidth || 250;
+        const containerWidth = containerRef.current.clientWidth;
+        const sidebar = document.querySelector('.sidebar') as HTMLElement;
+        const sidebarWidth = sidebar ? sidebar.offsetWidth : 250;
         const availableWidth = containerWidth - sidebarWidth;
         const mentorCardWidth = 250;
         const count = Math.max(1, Math.floor(availableWidth / mentorCardWidth));

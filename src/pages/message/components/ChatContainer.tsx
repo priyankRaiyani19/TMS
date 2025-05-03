@@ -27,8 +27,8 @@ interface MainChatContainerProps {
   setImageFile: (file: File | null) => void;
   sendMessage: () => void;
   setShowSidebar: (show: boolean) => void;
-  fileInputRef: React.RefObject<HTMLInputElement>;
-  chatRef: React.RefObject<HTMLDivElement>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
+  chatRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const ChatContainer: React.FC<MainChatContainerProps> = ({

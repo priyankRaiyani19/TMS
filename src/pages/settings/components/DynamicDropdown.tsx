@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 interface OptionItem {
     id: number;
-    [key: string]: string | number;
+  name: string[] | number;
+
 }
 
 interface DynamicDropdownProps<OptionItem> {
@@ -21,7 +22,7 @@ function DynamicDropdown<T extends OptionItem>({
                                                    secondaryField,
                                                    onSelect,
                                                }: DynamicDropdownProps<T>) {
-    const firstKey = Object.keys(options[0])[1]; // First key after 'id' as displayField
+    const firstKey = Object.keys(options[0])[1];
     const valueField = "id"; // Always use id as value
     const displayField = firstKey;
 
@@ -46,7 +47,7 @@ function DynamicDropdown<T extends OptionItem>({
         setSelectedItem(item);
     };
 
-    return (
+  return (
         <div className={`w-full max-w-[25rem] max-h-[5.438rem] p-4 flex flex-col gap-5 rounded `}>
             <label
                 className="block text-gray-700 text-[0.875rem] font-semibold mb-2"

@@ -8,7 +8,8 @@ import { Details } from '../data/overview/task-details.tsx';
 import CTAButton from '../components/common/CTAButton.tsx';
 
 export default function TaskDetail() {
-  const [files, setFiles] = useState([]);
+
+  const [files, setFiles] = useState<File[]>([]);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => setFiles(acceptedFiles)
