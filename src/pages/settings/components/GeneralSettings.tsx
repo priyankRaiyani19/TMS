@@ -43,7 +43,7 @@ const GeneralSettings = ({
       <DynamicDropdown title={"Language"} options={languageOptions} />
       <DynamicDropdown
         title={"Timezone"}
-        options={timeFormatOptions.timeFormats}
+        options={timeFormatOptions}
       />
 
       <div className={`p-4 flex flex-col gap-5`}>

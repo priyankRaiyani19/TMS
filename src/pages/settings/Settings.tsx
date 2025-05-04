@@ -4,7 +4,7 @@ import Navbar from "../../components/common/Navbar";
 import GeneralSettings, { GeneralFormData } from "./components/GeneralSettings.tsx";
 import {
     NotificationFormData,
-    NotificationSettings
+  NotificationSettings
 } from './components/NotificationSettings .tsx';
 
 const SettingsPage = () => {

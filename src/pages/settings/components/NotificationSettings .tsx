@@ -1,11 +1,12 @@
-"use client";
+
 import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import CTAButton from "../../../components/common/CTAButton";
 import Switch from "react-switch";
 
-// Validation Schema
+
+
 const notificationSchema = z.object({
   message: z.boolean(),
   taskUpdate: z.boolean(),
@@ -21,14 +22,14 @@ interface NotificationSettingsProps {
 }
 
 export const NotificationSettings = ({
-                                onSubmit,
-                                defaultValues = {
-                                  message: true,
-                                  taskUpdate: false,
-                                  taskDeadline: true,
-                                  mentorHelp: false,
-                                }
-                              }: NotificationSettingsProps) => {
+                                       onSubmit,
+                                       defaultValues = {
+                                         message: true,
+                                         taskUpdate: false,
+                                         taskDeadline: true,
+                                         mentorHelp: false,
+                                       }
+                                     }: NotificationSettingsProps) => {
   // Notification Form
   const { control, handleSubmit } = useForm<NotificationFormData>({
     resolver: zodResolver(notificationSchema),
@@ -78,3 +79,4 @@ export const NotificationSettings = ({
     </form>
   );
 };
+
